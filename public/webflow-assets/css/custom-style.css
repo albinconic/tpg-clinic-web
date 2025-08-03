@@ -1,0 +1,294 @@
+.c-links {
+    color: #fff;
+    text-decoration: none;
+}
+.prehab-top-banner-main {
+    background: #000;
+    top: 0;
+    z-index: 99999;
+}
+.prehab-top-banner-main-container {
+    display: flex;
+    justify-content: space-between;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    padding: 0 10px 0 10px;
+}
+.prehab-top-banner-main .top-left-section {
+    display: flex;
+}
+.prehab-top-banner-main .top-right-section.social-icons {
+    padding-right: 17px;
+}
+
+.prehab-top-banner {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+.prehab-top-banner .container-4 {
+    padding: 14px 10px;
+    min-height: auto;
+    text-align: center;
+}
+.prehab-top-banner .prehab-top-banner--side {
+
+}
+.prehab-top-banner .prehab-top-banner--side.banner-side-1 {
+
+}
+.prehab-top-banner .prehab-top-banner--side.banner-side-1 p {
+    padding: 0;
+    margin: 0;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+}
+.prehab-top-banner .prehab-top-banner--side.banner-side-2 {
+
+}
+.prehab-top-banner .prehab-top-banner--side.banner-side-2 a {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mobile-above-fold-action{
+    float: right;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.mobile-bookbutton{
+    width: 32%;
+    float: right;
+    margin: 1%;
+	background-color: var(--red);   
+	color: #fff;
+	text-align: center;
+	border-radius: 20px;
+	padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    text-decoration: none;
+	display:none;
+}
+.mobile-bookbutton:hover{
+	background-color: rgba(226, 50, 35, .85);
+}
+.mobile-schedule-callbutton{
+    background-color: transparent;
+    border: 1px solid #fff;
+    width: 63%;
+    float: left;
+    margin: 1%;
+}
+body {
+    font-size: 16px;
+    line-height: 1.4em;
+}
+.flip-card {
+    height: 522px;
+}
+
+.book-now-popup-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.book-now-popup-wrapper.bnp-open {
+    visibility: visible;
+    opacity: 1;
+}
+.book-now-popup-wrapper .book-now-popup {
+    width: 100%;
+    background: #1B1B1B;
+    max-width: 500px;
+    height: fit-content;
+    padding: 56px 40px 52px 40px;
+    border: 3px solid #5F6368;
+    border-radius: 20px;
+    position: relative;
+}
+.bnp-close {
+    color: #5F6368;
+    font-size: 34px;
+    font-weight: 500;
+    padding: 8px;
+    width: 38px;
+    height: 38px;
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+}
+.bnp-content h4 {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 31px;
+}
+.bnp-content div {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.bnp-content div a {
+    text-decoration: unset;
+    color: #fff;
+    padding: 12px 27px;
+    border-radius: 100px;
+    border: 1px solid #E23223;
+    display: inline-block;
+    width: 100%;
+    max-width: 287px;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+}
+.bnp-content div a:hover {
+    background: #e23223;
+}
+
+.form-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+.contact-form div.div-block-11 {
+    width: 100%;
+}
+.services {
+    color: #fff;
+    font-size: 16px !important;
+    text-decoration: none;
+}
+.hbspt-form {
+    width: 100%;
+}
+.custom-hubspot-form {
+
+}
+.custom-hubspot-form input[type="text"],
+.custom-hubspot-form input[type="email"],
+.custom-hubspot-form textarea {
+
+}
+.custom-hubspot-form .hs-button {
+
+}
+.custom-hubspot-form .hs-button:hover {
+
+}
+.schedule-call-belowvideo{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+.schedule-call-belowvideo a{
+  background-color: var(--red);
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 20px;
+  position: relative;
+  text-decoration: none;
+  font-weight: normal;
+}
+.schedule-call-belowvideo a:hover {
+  background-color: rgba(226, 50, 35, .85);
+}
+.discovery-call{
+  margin-top: 20px;
+  color: #d9d9d9;
+  text-align: center;
+  font-size: 24px;
+  line-height: 25px;
+}
+.discovery-call a{
+  color:#fff;
+}
+
+@media screen and (max-width: 991px) {
+    .mobile-bookbutton{
+      display: block;
+    }
+	.nav-button.w-nav-link{
+        display: none;
+        font-size: 14px !important;
+        width: auto;
+        margin: 0;
+	}
+	.w-nav .container-5 {
+	  margin-left: 0px;
+	  margin-right: 0px;
+	  padding-left: 10px;
+	  padding-right: 10px;
+    }
+    .heading-3 {
+        line-height: 1.4em;
+        margin-bottom: 6px;
+    }
+    .text-12 {
+        font-size: 16px;
+    }
+    div:not([class^="heading"]), p:not([class^="heading"]), a:not([class^="heading"]) {
+        font-size: 15px !important;
+        line-height: 1.4em !important;
+    }
+    .heading-6 {
+        font-size: 20px;
+        line-height: 1.4em;
+    }
+    .services {
+        font-size: 16px;
+        line-height: 1.4em;
+    }
+    .w-icon-nav-menu:before {
+        font-size: 26px !important;
+    }
+    .prehab-top-banner-main .top-right-section.social-icons {
+        display: none;
+    }
+    .prehab-top-banner-main .top-left-section {
+        display: flex;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .prehab-top-banner .prehab-top-banner--side.banner-side-1 p {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 479px) {
+   .mobile-bookbutton{
+       font-size: 13px;
+       padding: 5px 15px;
+       margin-top: 15px;
+   }
+   .brand{
+       max-width: 160px;
+   }
+   .image-7 {
+       max-width: 100%;
+   }
+}
+
+@media screen and (max-width: 360px) {
+   .brand{
+       max-width: 130px;
+   }
+}

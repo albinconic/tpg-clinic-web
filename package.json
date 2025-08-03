@@ -1,0 +1,44 @@
+{
+  "name": "clinic-theprehabguys-com",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build:css": "postcss src/styles/global.css -o public/css/tailwind.css",
+    "dev:css": "postcss src/styles/global.css -o public/css/tailwind.css --watch",
+    "dev:all": "concurrently \"npm run dev:css\" \"npm run dev\"",
+    "build:dev": "cp .env.dev .env.production && next build && next start",
+    "build:prod": "next build && next start"
+  },
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.3",
+    "@types/mixpanel-browser": "^2.60.0",
+    "clsx": "^2.1.1",
+    "mixpanel-browser": "^2.65.0",
+    "next": "15.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
+    "tailwindcss": "^4.1.10"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/react-slick": "^0.23.13",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.1",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "typescript": "^5"
+  }
+}
