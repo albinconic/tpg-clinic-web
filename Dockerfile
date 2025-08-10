@@ -2,9 +2,11 @@
 FROM node:20 AS builder
 WORKDIR /app
 
-# ✅ Accept build-time variable from Cloud Build
 ARG NEXT_PUBLIC_MIXPANEL_TOKEN
+ARG NEXT_PUBLIC_SITE_URL
+
 ENV NEXT_PUBLIC_MIXPANEL_TOKEN=$NEXT_PUBLIC_MIXPANEL_TOKEN
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
 
 # Install dependencies
 COPY package*.json ./
@@ -13,7 +15,7 @@ RUN npm install
 # Copy source code
 COPY . .
 
-# ✅ Build with env variable available
+# ✅ Build with env variables available
 RUN npm run build
 
 # 2. Production stage
