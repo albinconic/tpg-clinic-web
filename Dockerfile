@@ -2,14 +2,18 @@
 FROM node:20 AS builder
 WORKDIR /app
 
-# Install only prod dependencies first (for caching)
+# ✅ Accept build-time variable from Cloud Build
+ARG NEXT_PUBLIC_MIXPANEL_TOKEN
+ENV NEXT_PUBLIC_MIXPANEL_TOKEN=$NEXT_PUBLIC_MIXPANEL_TOKEN
+
+# Install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the project
+# Copy source code
 COPY . .
 
-# Build Next.js app
+# ✅ Build with env variable available
 RUN npm run build
 
 # 2. Production stage
@@ -19,7 +23,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=8080
 
-# Copy only the necessary files from builder
+# Copy only necessary files from builder
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
