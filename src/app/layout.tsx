@@ -1,3 +1,6 @@
+import GlobalErrorSetup from "@/components/errors/GlobalErrorSetup";
+import ErrorBoundary from "@/components/errors/ErrorBoundary";
+
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -30,7 +33,6 @@ export const metadata: Metadata = {
 		type: metaDataHelper.type,
 	}
 };
-
 
 export default async function RootLayout({
 	children,
@@ -100,30 +102,33 @@ export default async function RootLayout({
 		</head>
 
 		<body>
-			<Header />
+			<GlobalErrorSetup />
+			<ErrorBoundary>
+				<Header />
 
-			{children}
+				{children}
 
-			<Script
-				src="/webflow-assets/js/jquery-3.7.1.min.js"
-				strategy="beforeInteractive"
-			/>
-			<Script
-				src="/webflow-assets/js/webflow.js"
-				strategy="afterInteractive"
-			/>
-			{pathname === '/book-now' && (
 				<Script
-					src="/webflow-assets/js/dev-book-now.js"
+					src="/webflow-assets/js/jquery-3.7.1.min.js"
+					strategy="beforeInteractive"
+				/>
+				<Script
+					src="/webflow-assets/js/webflow.js"
 					strategy="afterInteractive"
 				/>
-			)}
-			<Script
-				src="/webflow-assets/js/custom-script.js"
-				strategy="afterInteractive"
-			/>
+				{pathname === '/book-now' && (
+					<Script
+						src="/webflow-assets/js/dev-book-now.js"
+						strategy="afterInteractive"
+					/>
+				)}
+				<Script
+					src="/webflow-assets/js/custom-script.js"
+					strategy="afterInteractive"
+				/>
 
-			<Footer />
+				<Footer />
+			</ErrorBoundary>
 		</body>
 
     </html>
