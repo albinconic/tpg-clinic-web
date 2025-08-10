@@ -5,16 +5,18 @@ substitutions:
   _SERVICE_NAME: "tpg-clinic-web"
   _REGION: "us-central1"
   _PLATFORM: "managed"
+  _NEXT_PUBLIC_MIXPANEL_TOKEN: ""
 
 options:
   logging: CLOUD_LOGGING_ONLY
 
 steps:
-  # 1) Build Docker image
+  # 1) Build Docker image with env variable available for next build
   - name: "gcr.io/cloud-builders/docker"
     args: [
       "build",
       "-t", "gcr.io/$PROJECT_ID/$_SERVICE_NAME:$SHORT_SHA",
+      "--build-arg", "NEXT_PUBLIC_MIXPANEL_TOKEN=$_NEXT_PUBLIC_MIXPANEL_TOKEN",
       "-f", "Dockerfile",
       "."
     ]
@@ -34,7 +36,8 @@ steps:
       "--image", "gcr.io/$PROJECT_ID/$_SERVICE_NAME:$SHORT_SHA",
       "--region", "$_REGION",
       "--platform", "$_PLATFORM",
-      "--allow-unauthenticated"
+      "--allow-unauthenticated",
+      "--set-env-vars", "NEXT_PUBLIC_MIXPANEL_TOKEN=$_NEXT_PUBLIC_MIXPANEL_TOKEN"
     ]
 
 images:
