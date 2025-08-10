@@ -1,0 +1,37 @@
+# cloudbuild.yaml
+# Builds Docker image from Dockerfile in repo root, pushes it, and deploys to Cloud Run.
+# Works great with a GitHub trigger. No local Docker needed.
+
+substitutions:
+  _SERVICE_NAME: "clinic-web"          # Change if you want a different Cloud Run service name
+  _REGION: "us-central1"               # Change region if needed
+  _PLATFORM: "managed"
+  # Image path uses the current project and short commit SHA automatically:
+  _IMAGE: "gcr.io/$PROJECT_ID/clinic-web:$SHORT_SHA"
+
+options:
+  logging: CLOUD_LOGGING_ONLY          # Avoids logs bucket requirement
+
+steps:
+  # 1) Build Docker image from Dockerfile in repo root
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "$_IMAGE", "-f", "Dockerfile", "."]
+
+  # 2) Push image to Container Registry (gcr.io)
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "$_IMAGE"]
+
+  # 3) Deploy to Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      [
+        "run", "deploy", "$_SERVICE_NAME",
+        "--image", "$_IMAGE",
+        "--region", "$_REGION",
+        "--platform", "$_PLATFORM",
+        "--allow-unauthenticated"
+      ]
+
+images:
+  - "$_IMAGE"
